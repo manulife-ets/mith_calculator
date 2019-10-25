@@ -37,6 +37,6 @@ jobs:
             CF_USERNAME: ${{ secrets.cf_username }}
             CF_PASSWORD: '${{ secrets.cf_password }}'
             CF_TARGET_ORG: mith_org
-            CF_TARGET_SPACE: mith_space
+            CF_TARGET_SPACE: development
           with:
             args: 'apps'
