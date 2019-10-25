@@ -43,4 +43,4 @@ jobs:
             CF_TARGET_ORG: mith-org
             CF_TARGET_SPACE: development
           with:
-            args: 'apps'
+            args: 'mith_calculator'
