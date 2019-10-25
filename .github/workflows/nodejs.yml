@@ -29,3 +29,14 @@ jobs:
         npm test
       env:
         CI: true
+  cf:
+     runs-on: ubuntu-latest
+     steps:
+        - uses: d3sandoval/cloud-foundry-action@1.1.1
+          env:
+            CF_USERNAME: ${{ secrets.cf_username }}
+            CF_PASSWORD: '${{ secrets.cf_password }}'
+            CF_TARGET_ORG: mith_org
+            CF_TARGET_SPACE: mith_space
+          with:
+            args: 'apps'
