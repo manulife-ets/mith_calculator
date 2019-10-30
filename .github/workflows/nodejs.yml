@@ -43,5 +43,6 @@ jobs:
             CF_PASSWORD: '${{ secrets.cf_password }}'
             CF_TARGET_ORG: mith-org
             CF_TARGET_SPACE: development
+            GITHUB_REPOSITORY: '${{ secrets.github_repo }}'
           with:
             args: 'echo "$GITHUB_REPOSITORY" & push /home/runner/work/mith_calculator/mith_calculator'
