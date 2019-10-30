@@ -36,6 +36,7 @@ jobs:
   cf:
      runs-on: ubuntu-latest
      steps:
+        - uses: actions/checkout@v1
         - uses: d3sandoval/cloud-foundry-action@1.1.1
           env:
             CF_USERNAME: ${{ secrets.cf_username }}
