@@ -36,11 +36,13 @@ jobs:
   cf:
      runs-on: ubuntu-latest
      steps:
+        - uses: actions/checkout@v1
         - uses: d3sandoval/cloud-foundry-action@1.1.1
           env:
             CF_USERNAME: ${{ secrets.cf_username }}
             CF_PASSWORD: '${{ secrets.cf_password }}'
             CF_TARGET_ORG: mith-org
             CF_TARGET_SPACE: development
+            GITHUB_REPOSITORY: '${{ secrets.github_repo }}'
           with:
             args: 'echo "$GITHUB_REPOSITORY" & push /home/runner/work/mith_calculator/mith_calculator'
