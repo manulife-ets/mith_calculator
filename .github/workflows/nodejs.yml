@@ -45,4 +45,4 @@ jobs:
             CF_TARGET_SPACE: development
             GITHUB_REPOSITORY: '${{ secrets.github_repo }}'
           with:
-            args: 'echo "$GITHUB_REPOSITORY" & push /home/runner/work/mith_calculator/mith_calculator'
+            args: 'push $GITHUB_REPOSITORY'
