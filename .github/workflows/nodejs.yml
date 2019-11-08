@@ -45,4 +45,4 @@ jobs:
             CF_TARGET_SPACE: development
             GITHUB_REPOSITORY: '${{ secrets.github_repo }}'
           with:
-            args: 'push mith_calculator'
+            args: 'push mith_calculator & logs mith_calculator --recent'
