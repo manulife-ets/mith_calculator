@@ -22,6 +22,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: Synopsys Detect
+      uses: blackducksoftware/github-action@2.0.0
+      with:
+        args: '--blackduck.url="${{ secrets.BLACKDUCK_URL}}" --blackduck.api.token="${{ secrets.BLACKDUCK_API_TOKEN}}" --detect.risk.report.pdf=true'
     - name: npm install, build, and test
       run: |
         npm install
@@ -29,3 +33,16 @@ jobs:
         npm test
       env:
         CI: true
+  cf:
+     runs-on: ubuntu-latest
+     steps:
+        - uses: actions/checkout@v1
+        - uses: d3sandoval/cloud-foundry-action@1.1.1
+          env:
+            CF_USERNAME: ${{ secrets.cf_username }}
+            CF_PASSWORD: '${{ secrets.cf_password }}'
+            CF_TARGET_ORG: mith-org
+            CF_TARGET_SPACE: development
+            GITHUB_REPOSITORY: '${{ secrets.github_repo }}'
+          with:
+            args: 'push mith_calculator/'
