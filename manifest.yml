@@ -1,0 +1,3 @@
+applications:
+- name: mith_calculator
+  command: node server.js
