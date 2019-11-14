@@ -1,5 +1,4 @@
 name: Mith's Calculator App
-description: learn how to use github actions
 on: 
   push:
     branches: 
