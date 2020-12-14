@@ -1,0 +1,30 @@
+---
+groups:
+- name: ghas-node-calculator
+  jobs:
+  - deploy-dev-cac
+
+resources:
+- name: src-develop
+  type: git
+  check_every: 999h
+  webhook_token: thisISmySecret
+  source:
+    branch: ghas
+    uri: {{GIT_SSH_URI}}
+    private_key: {{GIT_PRIVATE_KEY}}
+    skip_ssl_verification: true
+
+jobs:
+- name: deploy-dev-cac
+  serial: true
+  public: true
+  plan:
+  - get: source
+    resource: src-develop
+    trigger: true
+  - task: push
+    file: source/concourse/tasks/push-dev.yml
+    params:
+      TERM: xterm
+      API_TOKEN: {{API_TOKEN}}
