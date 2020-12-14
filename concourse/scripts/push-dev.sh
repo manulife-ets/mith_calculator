@@ -3,7 +3,7 @@ set -o errexit
 set -x
 
 # Get Commit-SHA
-cd ../..
+cd source
 pwd
 commitsha=`git rev-parse HEAD`
 #download CodeQL- runner
