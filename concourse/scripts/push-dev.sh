@@ -14,6 +14,7 @@ chmod +x codeql-runner-linux
 #Init and Analyze
 ls
 ./codeql-runner-linux init --repository manulife-ets/mith_calculator  --github-url https://github.com  --github-auth b6bbe465b565994fbd8c4cef4af6f4a737f83228
+cd "$sourcedir"
 ls
 ./codeql-runner-linux analyze --repository manulife-ets/mith_calculator --github-url https://github.com --github-auth b6bbe465b565994fbd8c4cef4af6f4a737f83228 --ref refs/heads/ghas --commit "$commitsha"
 
