@@ -5,3 +5,5 @@ disable-default-queries: true
 queries:
  - name: Security and quality checks
    uses: security-and-quality
+ - name: Extended Security Checks 
+   uses: security-extended
