@@ -16,6 +16,18 @@ resources:
     skip_ssl_verification: true
 
 jobs:
+- name: snyk-scan
+  serial: true
+  public: true
+  plan:
+  - in_parallel:
+    - get: source
+      resource: src-develop
+      trigger: true
+  - task: scan
+    file: source/concourse/tasks/snyk.yml
+    params:
+      SNYK_TOKEN: {{SNYK_TOKEN}}
 - name: deploy-dev-cac
   serial: true
   public: true
