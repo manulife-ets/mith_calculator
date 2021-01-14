@@ -8,7 +8,7 @@ pwd
 gradle -v
 
 # specific for NPM projects, to generate the package-lock.json file
-npm install
+# npm install
 
 # set the snyk token for authentication and monitor purposes
 snyk auth $SNYK_TOKEN
